@@ -96,3 +96,22 @@ exports.download_file = function(req, res){
      
    });
 };
+
+
+
+exports.drop = function(req, res){
+	var message = '';
+   var id = req.params.id;
+    const sql="DELETE FROM `files` WHERE `id`='"+id+"'";
+
+    db.query(sql, function(err, result){
+      
+	  if(result.length <= 0){
+	  message = "Not found!";
+     res.json({error:message})
+     }else{
+      res.json({"success":"drop successfull"})
+     }
+     
+   });
+};
