@@ -69,10 +69,10 @@ exports.download = function(req, res){
     db.query(sql, function(err, result){
       
 	  if(result.length <= 0){
-	  message = "Not found!";
+	  message = "Not found download!";
      res.json({error:message})
      }else{
-      res.json({data:result,downl:`https://assignment-intern.herokuapp.com/api/add/download/file/${id}`});
+      res.json({data:result,downl:`${process.env.APP_BASE_URL}/api/add/download/file/${id}`});
      }
      
    });
@@ -90,8 +90,7 @@ exports.download_file = function(req, res){
 	  message = "Not found any files for download!";
      res.json({error:message})
      }else{
-
-      const filePath=`${__dirname}/../uploads/${result}`;
+      const filePath=`${__dirname}/../uploads/${result[0].file}`;
       res.download(filePath);
      }
      
