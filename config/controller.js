@@ -26,8 +26,10 @@ exports.index=function(req, res){
 	              if (err)  return res.status(500).send(err);
                 
       					var sql = "INSERT INTO `files`(`id`,`name`,`dob`,`country`,`file`) VALUES ('" + id + "','" + name + "','" + dob + "','" + country + "','" + uniqeName + "')";
- 
-                     res.json({success: "Send Successfully"})
+
+                     var query = db.query(sql, function() {
+                        res.json({success: "Send Successfully"})
+                    });
 					   });
           } else {
             message = "This format is not allowed , please upload file with '.png','.pdf','.jpg'";

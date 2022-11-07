@@ -1,9 +1,6 @@
 const router=require('express').Router();
 const dataRou = require('../config/controller')
-const path=require('path')
-router.get('/',(req,res)=>{
-    res.sendFile(path.join(__dirname,'../public/ok.html'))
-});
+
 
 router.post('/',dataRou.index);
 router.get('/all',dataRou.allData);
