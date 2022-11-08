@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <link rel="stylesheet" href="/viewStyle.css">
+</head>
+<body>
+
+    <section class="main-con">
+
+
+        <form id="inputForm">
+            <%if(locals.error){%>
+                <h2><%=locals.error%></h2>
+            <%}else{%>
+            <div class="field">
+                <label><b>Name</b></label>
+                <input type="name" id="nameinp" required name="name"  readonly value="<%=name%>">
+            </div>
+            <div class="field">
+                <label><b>Date of Birth</b></label>
+                <input type="name" id="dboinp" required name="dob"  readonly value="<%=dob%>">
+
+            </div>
+            <div class="field">
+                <label><b>Country</b></label>
+                <input  id="coninp" name="country" required list="conlist" readonly value="<%=country%>">
+                 
+            </div>
+            
+            <div class="image">
+                <img src="<%=downl%>" alt="" width="250px">
+            </div>
+            <button ><b><a href="<%=downl%>">Download Resume</a></b></button>
+
+            <%}%>
+        </form>
+        
+        
+        
+    </section>
+   <script>
+        
+   </script>
+</body>
+</html>

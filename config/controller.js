@@ -68,14 +68,21 @@ exports.download = function(req, res){
 
     db.query(sql, function(err, result){
       
-	  if(result.length <= 0){
-	  message = "Not found download!";
-     res.json({error:message})
-     }else{
-      res.json({data:result,downl:`${process.env.APP_BASE_URL}/api/add/download/file/${id}`});
+	  if(result.length <= 0)
+            message = "Not found!";
+         
+         res.render('download',{
+         id:result[0].id,
+         name:result[0].name,
+         dob:result[0].dob,
+         country:result[0].country,
+         file:result[0].file,
+         ctime:result[0].ctime,
+         downl:`${process.env.APP_BASE_URL}/api/add/download/file/${id}`
+     });
      }
      
-   });
+   );
 };
 
  

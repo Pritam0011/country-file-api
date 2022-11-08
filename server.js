@@ -31,6 +31,9 @@ const corsOpt={
 /* Allowing the server to accept requests from other domains. */
 app.use(cors(corsOpt));
 
+// engine 
+app.set('views',path.join(__dirname,'/views'));
+app.set('view engine', 'ejs');
 
 
 PORT=process.env.PORT || 3000;
@@ -43,6 +46,7 @@ app.listen(PORT, ()=>{
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'uploads')));
+app.use(express.static('views'));
 app.use(fileUpload());
 
 
